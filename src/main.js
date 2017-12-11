@@ -7,7 +7,7 @@
 import 'pixi';
 import { Phaser } from 'phaser';
 
-import { FOV } from 'rot-js';
+import ROT from 'rot-js';
 
 const WIDTH = 16 * 32;
 const HEIGHT = 16 * 24;
@@ -24,7 +24,7 @@ class Game {
     create() {
         console.log('create start');
 
-        console.log(new FOV.RecursiveShadowcasting(() => {}));
+        console.log(new ROT.FOV.RecursiveShadowcasting(() => {}));
 
         console.log('create end');
     }

@@ -5,13 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var root_dir = path.resolve(__dirname);
-var phaser_modules = path.join(
-    root_dir,
-    'node_modules',
-    'phaser-ce',
-    'build',
-    'custom',
-);
+var node_modules = path.join(root_dir, 'node_modules');
+var phaser_modules = path.join(node_modules, 'phaser-ce', 'build', 'custom');
 
 var paths = {
     static: path.join(root_dir, 'static'),
@@ -19,8 +14,7 @@ var paths = {
     content: path.join(root_dir, 'dist'),
     pixi: path.join(phaser_modules, 'pixi.js'),
     phaser: path.join(phaser_modules, 'phaser-arcade-physics.js'),
-    // NOTE:
-    // maybe if we define the path to the rot.js lib here, and use the "expose-loader" for it as well?
+    rot_js: path.join(node_modules, 'rot-js', 'lib', 'rot.js'),
 };
 
 module.exports = {
@@ -40,6 +34,7 @@ module.exports = {
         alias: {
             pixi: paths.pixi,
             phaser: paths.phaser,
+            'rot-js': paths.rot_js,
         },
     },
 
@@ -58,6 +53,13 @@ module.exports = {
                 use: {
                     loader: 'expose-loader',
                     options: 'Phaser',
+                },
+            },
+            {
+                test: paths.rot_js,
+                use: {
+                    loader: 'expose-loader',
+                    options: 'ROT',
                 },
             },
             // pass rest of source through babel
