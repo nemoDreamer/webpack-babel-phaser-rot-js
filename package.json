@@ -1,0 +1,48 @@
+{
+  "name": "webpack-babel-phaser-rot-js",
+  "version": "1.0.0",
+  "description": "A Phaser + rot.js template written in ES6 with Babel and Webpack.",
+  "author": "Philip Blyth",
+  "license": "MIT",
+  "main": "src/main.js",
+  "keywords": [
+    "phaser",
+    "rot.js",
+    "babel",
+    "webpack"
+  ],
+  "scripts": {
+    "preclean": "mkdirp dist",
+    "clean": "rimraf dist/*",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src",
+    "build": "webpack -p",
+    "prebuild": "npm run clean && npm run lint",
+    "start": "webpack-dev-server --port 8001 --inline --hot --progress --open"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.2.3",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "expose-loader": "^0.7.4",
+    "html-webpack-plugin": "^2.30.1",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "prettier": "^1.8.2",
+    "rimraf": "^2.5.0",
+    "webpack": "^3.9.0",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "dependencies": {
+    "phaser-ce": "^2.9.2",
+    "rot-js": "^0.6.4"
+  }
+}

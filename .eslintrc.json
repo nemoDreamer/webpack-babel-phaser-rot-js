@@ -1,0 +1,33 @@
+{
+    "extends": [
+        "airbnb/base",
+        "prettier"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "Phaser": true
+    },
+    "plugins": [
+        "import",
+        "prettier"
+    ],
+    "rules": {
+        "no-plusplus": 0,
+        "no-param-reassign": 0,
+        "prettier/prettier": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "extensions": [".js"]
+            }
+        },
+        "import/core-modules": [
+            "pixi",
+            "phaser"
+        ]
+    }
+}
